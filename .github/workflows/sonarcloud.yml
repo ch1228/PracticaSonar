@@ -43,7 +43,7 @@ jobs:
         shell: powershell
         run: |
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"ch1228_PracticaSonar" /o:"ch1228" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
-          dotnet build RestAPI/RestAPI.cspro --configuration Release;
+          dotnet build PracticaSonar/RestAPI/RestAPI.cspro --configuration Release;
           
-          dotnet test IntegrationTests/Tests.csproj --no-build --collect:"XPlat Code Coverage";
+          dotnet test PracticaSonar/IntegrationTests/Tests.csproj --no-build --collect:"XPlat Code Coverage";
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
